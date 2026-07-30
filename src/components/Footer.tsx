@@ -1,6 +1,7 @@
 const FAMILY = [
   { label: "jahpodalmossar", href: "https://jah-pod-al-mossar.vercel.app" },
   { label: "jahpodbeber", href: "https://jahpodebeber.com" },
+  { label: "jahpodbebeuaguahj", href: "https://jah-bebeu-agua-hj.vercel.app/" },
   { label: "jahpodjantar", href: "#", soon: true },
 ] as const;
 
@@ -33,7 +34,9 @@ function FooterLinks({
       {items.map((link) => (
         <li key={link.label}>
           {"soon" in link && link.soon ? (
-            <span className="footer-link footer-link--soon">{link.label}</span>
+            <span className="footer-link footer-link--soon">
+              {link.label} <em>(Em breve)</em>
+            </span>
           ) : (
             <a
               className="footer-link"

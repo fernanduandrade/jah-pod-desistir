@@ -12,6 +12,7 @@ import {
   loadProgress,
   saveProgress,
 } from "@/lib/progress-db";
+import { playClickSfx, playLevelUpSfx } from "@/lib/sfx";
 import { QuitTraps } from "./QuitTraps";
 import { StudyWarrior } from "./StudyWarrior";
 import { XpBar } from "./XpBar";
@@ -97,10 +98,12 @@ export function Hero() {
       if (nextXp >= XP_PER_LEVEL) {
         setLevel((l) => l + 1);
         setLevelUp(true);
+        playLevelUpSfx();
         if (levelUpTimer.current) clearTimeout(levelUpTimer.current);
         levelUpTimer.current = setTimeout(() => setLevelUp(false), 900);
         return 0;
       }
+      playClickSfx();
       setLevelUp(true);
       if (levelUpTimer.current) clearTimeout(levelUpTimer.current);
       levelUpTimer.current = setTimeout(() => setLevelUp(false), 450);

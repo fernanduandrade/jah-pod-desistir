@@ -544,6 +544,13 @@ body {
 
 .footer-link--soon {
   opacity: 0.45;
+  cursor: default;
+}
+
+.footer-link--soon em {
+  font-style: normal;
+  font-size: 0.85em;
+  opacity: 0.85;
 }
 
 .footer-credit {

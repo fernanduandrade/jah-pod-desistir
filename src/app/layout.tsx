@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Press_Start_2P, Rubik } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/nuxt/runtime";
+import { Analytics } from "@vercel/analytics/next";
 
 const pressStart = Press_Start_2P({
   weight: "400",
@@ -35,7 +35,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${pressStart.variable} ${rubik.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">{children}{Analytics}</body>
+      <body className="min-h-full flex flex-col antialiased">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
